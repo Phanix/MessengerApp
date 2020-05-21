@@ -2,6 +2,7 @@ package com.example.messengerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSendMessage(View View){
-
+        Intent intent = new Intent(this, ReceiveMessageActivity.class );
+        startActivity(intent);
     }
 }
