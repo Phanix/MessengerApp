@@ -16,10 +16,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSendMessage(View View){
-        Intent intent = new Intent(this, ReceiveMessageActivity.class );
+        Intent intent = new Intent(Intent.ACTION_SEND );
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
-        intent.putExtra("message", message);
-        startActivity(intent);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        String chooserTitle = getString(R.string.chooser);
+        Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
+        startActivity(chosenIntent);
     }
 }
